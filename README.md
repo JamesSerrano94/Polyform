@@ -3,10 +3,8 @@
 
 Here is an accelerated version of what was originally prototyped in the Colab, with a few improvements
 
-Speed:
-- Incremental computation of the set of possible locations to insert a piece such that it's strongly connected to something
-- Early termination for the naive algorithm
-- (soon: cut algorithm and threading)
+Tried multiple different algorithms to check validity as well as compare the speed using p values. All tested algorithms are in the code but earlyStoppingConditionPriorityQueue works twice as fast as the DFS the team used to be using.
+Also starting out with a compact shape ensures that shape is closer to uniform distribution
 
 Quality of life:
 - Live rendering
@@ -14,8 +12,9 @@ Quality of life:
 
 What if we had one thread find all contiguous blocks on the left side of center, another thread find all contiguous blocks right of center, and then see if each contiguous block to the left is contiguous with a block on the right at the end. 
 
-In action with the slower "render" mode:
+to run use
+cargo run --bin main -- --length [LENGTH] --export [EXPORT] --shuffles [SHUFFLES] --amount 1
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/10949560/194731222-e064426f-8062-4b7e-adff-b05912c98736.gif)
+<img width="2560" height="1080" alt="image" src="https://github.com/user-attachments/assets/161b322e-d5bc-45e1-8336-d76707380edd" />
 
-See a version that shuffles in your browser with web assembly at [my website](https://dgramop.xyz/blocks.html)
+
